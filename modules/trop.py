@@ -1,6 +1,6 @@
 # lv2
 '''
-.lv2:: Анимация для текста. \n\n<b>Использование:</b> \n<code>.type</code> ваштекст
+.trop:: Анимация для текста. \n\n<b>Использование:</b> \n<code>.type</code> ваштекст
 '''
 
 import asyncio
@@ -9,7 +9,7 @@ from asyncio import sleep
 import random
 
 def a(client):
-	@client.on(events.NewMessage(pattern=r"\.lv2", outgoing=True))
+	@client.on(events.NewMessage(pattern=r"\.trop", outgoing=True))
 	async def watcher(event):
 		message = event
 		if message.sender_id == (await message.client.get_me()).id:
