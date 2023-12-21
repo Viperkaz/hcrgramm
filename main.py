@@ -3,7 +3,7 @@ from math import prod as _statistics
 
 
 __authors__ = ('https://t.me/hres_adm', '@hres_adm')
-__github__ = 'https://github.com/Hcrgram-Project/Hcrgram'
+__github__ = 'https://github.com/Viperkaz/hcrgramm'
 
 __code__ = 'print("Pupa i lupa")'
 
