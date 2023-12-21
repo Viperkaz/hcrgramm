@@ -1,29 +1,35 @@
+# Type2
+'''
+.oi:: Анимация для текста. \n\n<b>Использование:</b> \n<code>.oi</code> ваштекст
+'''
 
 from telethon import events
-from asyncio import sleep
-import random
+import asyncio
+import math
 
-async def animate_cat(message):
-    cat_frames = [
-        r" /\_/\ ",
-        r"( o.o )",
-        r"> ^ <"
-    ]
+def a(client):
+    @client.on(events.NewMessage(pattern=r"\.oi (.*)", outgoing=True))
+    async def _(event):
+        if event.fwd_from:
+            return
+        input_str = event.pattern_match.group(1)
+        typing_symbol = "<"
+        DELAY_BETWEEN_EDITS = 0.1
+        previous_text = ""
+        await event.edit(typing_symbol)
+        await asyncio.sleep(DELAY_BETWEEN_EDITS)
+        for character in input_str:
+            previous_text = previous_text + "" + character
+            typing_text = previous_text + "" + typing_symbol
+            animated_text = ""
+            for i in range(len(typing_text)):
+                space = " " * i
+                animated_text += space + typing_text[i:]
+            await event.edit(f'<b>{animated_text}</b>', parse_mode='html')
+            await asyncio.sleep(DELAY_BETWEEN_EDITS)
 
-    for frame in cat_frames:
-        await message.edit(frame)
-        await sleep(0.5)
-
-async def animate_animal(client, command, frames):
-    @client.on(events.NewMessage(pattern=command, outgoing=True))
-    async def watcher(event):
-        message = event
-        if message.sender_id == (await message.client.get_me()).id:
-            for frame in frames:
-                await message.edit(frame)
-                await sleep(0.5)
 if __name__ == '__main__':
-	try:
-		a(client)
-	except:
-		pass
+    try:
+        a(client)
+    except:
+        pass
