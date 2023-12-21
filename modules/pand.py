@@ -1,6 +1,6 @@
 # Panda
 '''
-.voln:: Анимация для текста. \n\n<b>Использование:</b> \n<code>.pand</code> ваштекст
+.pand:: Анимация для текста. \n\n<b>Использование:</b> \n<code>.pand</code> ваштекст
 '''
 
 from telethon import events
