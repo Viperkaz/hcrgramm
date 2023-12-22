@@ -8,9 +8,9 @@ from asyncio import sleep
 import random
 
 
-def police_animation(client):
+def a(client):
     @client.on(events.NewMessage(pattern=r"\.police", outgoing=True))
-    async def police_animate(event):
+    async def watcher(event):
         message = event
         if message.sender_id == (await message.client.get_me()).id:
             arr = ["🔵", "🚨", "🔴", "🚨"]
@@ -45,6 +45,6 @@ def police_animation(client):
 
 if __name__ == '__main__':
     try:
-        police_animation(client)
+        a(client)
     except:
         pass
