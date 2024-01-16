@@ -1,3 +1,10 @@
+# meta pic: https://static.dan.tatar/lovemagic_icon.png
+# meta banner: https://mods.hikariatama.ru/badges/lovemagic.jpg
+# meta developer: @hikarimods
+# scope: inline
+# scope: hikka_only
+# scope: hikka_min 1.3.0
+
 import json
 import logging
 import random
